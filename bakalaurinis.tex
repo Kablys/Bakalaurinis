@@ -15,69 +15,147 @@
 \usepackage{url}
 \usepackage{wrapfig}
 
+%My personal additions
+\graphicspath{{img/}}
+\newif\iffast{} %degaults to false
+%\fasttrue{}
+\iffast{}
+
+	\usepackage[rgb,dvipsnames]{xcolor}
+	\usepackage[colorinlistoftodos,prependcaption,textsize=footnotesize]{todonotes} 
+
+	\addtolength{\oddsidemargin}{3cm}
+	\addtolength{\evensidemargin}{3cm}
+	\addtolength{\textwidth}{-3cm}
+
+	\reversemarginpar{}
+	\setlength{\marginparwidth}{5.5cm} 
+\else
+\fi
+%\usepackage{booktabs}
 
 % Titulinio aprašas
 \university{Vilniaus universitetas}
 \faculty{Matematikos ir informatikos fakultetas}
 \department{Informatikos katedra}
 \papertype{Baigiamasis bakalauro darbas}
-\title{Rizikų valdymo proceso modeliavimas}
-\titleineng{Modeling of Risk Management Process}
-\status{X kurso Y grupės studentas}
-\author{Vardenis Pavardenis}
+\title{Dokomentų klasterizacija}
+\titleineng{Document clustering}
+\status{4 kurso 1 grupės studentas}
+\author{Dominykas Ablingis}
 % \secondauthor{Vardonis Pavardonis}   % Pridėti antrą autorių
-\supervisor{prof. habil. dr. Vardaitis Pavardaitis}
-\reviewer{doc. dr. Vardauskas Pavardauskas}
+\supervisor{lekt. Rimantas Kybartas}
+\reviewer{doc. dr. Vardenis Pavardenis}
 \date{Vilnius \\ \the\year}
 
 % Nustatymai
-% \setmainfont{Palemonas}   % Pakeisti teksto šriftą į Palemonas (turi būti įdiegtas sistemoje)
+\setmainfont{Palemonas}   % Pakeisti teksto šriftą į Palemonas (turi būti įdiegtas sistemoje)
 \bibliography{bibliografija} 
 
 \begin{document}
-\maketitle
 
+\iffast{}
+	\newcommand{\rewrite}[1]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red]{#1}}
+	\newcommand{\needsource}[1]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,]{#1}}
+	\newcommand{\toadd}[1]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,]{#1}}
+	\newcommand{\note}[1]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum]{#1}}
+	\newcommand{\thiswillnotshow}[1]{\todo[disable]{#1}}
+	\listoftodos[Notes]
+\else
+	\newcommand{\rewrite}[1]{}
+	\newcommand{\needsource}[1]{}
+	\newcommand{\toadd}[1]{}
+	\newcommand{\note}[1]{}
+	\newcommand{\thiswillnotshow}[1]{}
+\fi
+
+\maketitle
 \tableofcontents
 
+%My macros
+
+\newcommand{\ltang}[2]{#1 (angl.\  \textit{#2}) }
+\newcommand{\BigO}[1]{$\mathcal{O}(#1)$}
+
 \sectionnonum{Sąvokų apibrėžimai}
-Sutartinių ženklų, simbolių, vienetų ir terminų sutrumpinimų sąrašas (jeigu
-ženklų, simbolių, vienetų ir terminų bendras skaičius didesnis nei 10 ir
-kiekvienas iš jų tekste kartojasi daugiau nei 3 kartus).
+  %Sutartinių ženklų, simbolių, vienetų ir terminų sutrumpinimų sąrašas (jeigu ženklų, simbolių, vienetų ir terminų bendras skaičius didesnis nei 10 ir kiekvienas iš jų tekste kartojasi daugiau nei 3 kartus).
+  \begin{itemize}
+    \item cluster
+    \item clustering
+    \item document
+    \item corpus
+    \item term – termas dar vadinamas (tokens, words,terms or attributes)
+    \item token
+    \item feature
+    \item online
+    \item ofline
+    \item supervised
+    \item unsupervised
+    \item \ltang{matmenų redukcija}{dimensionality reduction}
+  \end{itemize}
 
 \sectionnonum{Įvadas}
-Įvade apibūdinamas darbo tikslas, temos aktualumas ir siekiami rezultatai.
+	%Įvade apibūdinamas darbo tikslas, temos aktualumas ir siekiami rezultatai. Darbo įvadas neturi būti dėstymo santrauka. Įvado apimtis 1–2 puslapiai.
+	Šiais laikais kai kiekvienas žmogus turintis priėjimą prie interneto gali dalintis informacija, daugybė knygu yra skaitmenizuojamos kiekvieną dieną ir mokslo institucijos dalinasi savo moksline informacija, pasiekemos informacijos kiekis didėja su kiekviena diena ir pagrindinė problema nebėra informacijos trūkumas, o atradimas ko reikia. Tam spresti buvo ir yra kuriama ivairūs mechanizmai: paiškos varikliai\ldots Šiame darbe autorius nagrinės viena iš šios problemos sprendimo metodų, klasterizacijos algoritmus ir jų panaudojimą textinems dokumentams. %Klasterizacijos algoritmai priklauso neprižiūrimo mokymosi \textbf{tipui} ir pagrinde naudojami.
+
+	Šiandieninėje visuomenėje prieinamos informacijos kiekis didėja su kiekviena diena ir pagrindinė problema yra ne informacijos trūkumas, o jos gausa ir galimybė surasti reikiamą informaciją. Paieškos programos gali pateikti didelius kiekius tekstinių dokumentų, bet reikiamo dokumento paieška užima daug laiko ir be to, ne visada gauta informacija atitinka paiešką. Tekstinių dokumentų paieškos procesui palengvinti ir pagreitinti gali būti taikomi klasterizavimo metodai, kurie yra pakankamai gerai žinomi ir jau seniai naudojami duomenų klasterizavimui.  Klasterizavimo metu  dokumentai pagal savo turinį suskirstomi į klasterius vadovaujantis tam tikrais kriterijais, pvz., pagal temą, pagal dokumento naujumą ir pan. 
 
 \section{Pagrindinė tiriamoji dalis}
-Pagrindinėje tiriamojoje dalyje aptariama ir pagrindžiama tyrimo metodika;
-pagal atitinkamas darbo dalis, nuosekliai, panaudojant lyginamosios analizės,
-klasifikacijos, sisteminimo metodus bei apibendrinimus, dėstoma sukaupta ir
-išanalizuota medžiaga. 
+	%Pagrindinėje tiriamojoje dalyje aptariama ir pagrindžiama tyrimo metodika; pagal atitinkamas darbo dalis, nuosekliai, panaudojant lyginamosios analizės, klasifikacijos, sisteminimo metodus bei apibendrinimus, dėstoma sukaupta ir išanalizuota medžiaga.
+	\toadd{Reikia nuspresti ką konkrečiau tirsiu ir tai aprašyti.}
+	Darbo tikslas – mokslinės literatūros apie dokumentų apdorojimą ir klasterizavimą apžvalga ir analizė  
 
-\subsection{Poskyris}
-Citavimo pavyzdžiai: cituojamas vienas šaltinis \cite{PvzStraipsnLt}; cituojami
-keli šaltiniai \cite{PvzStraipsnEn, PvzKonfLt, PvzKonfEn, PvzKnygLt, PvzKnygEn,
-PvzElPubLt, PvzElPubEn, PvzMagistrLt, PvzPhdEn}.
+	Darbo uždaviniai: 
+	\begin{enumerate}
+		\item Panaudojimo sritys
+		\item Dokumentų klasterizavimui naudojamų įrankių ir metodų apžvalga.
+		\item Dokumentų klasterizavimo proceso žingsnių aprašymas
+		\item Kylantys iššūkiai  
+		\item Susijusios problemos 
+	\end{enumerate}
 
-\subsubsection{Skirsnis}
-\subsubsubsection{Straipsnis}
-\subsubsection{Skirsnis}
-\section{Skyrius}
-\subsection{Poskyris}
-\subsection{Poskyris}
+	Kursiniame darbe buvo siekta susipažinti su moksline literatūra, išanalizuoti egzistuojančius dokumentų klasterizavimo metodus ir įrankius, kurie bus išbandyti taikomojo pobūdžio  kursiniame darbe apie lietuviškų dokumentų klasterizavimą.
 
+	Šiame darbe taip pat bus paminėtos kitos su dokumentu klasterizacija susijusios problemos ir ši informacija bus išdėstyta eilės tvarka kaip būtu sprendžiamos užduotys.
+	\begin{enumerate}
+		\item Duomenų išgavimas iš skirtingų tekstinių dokumentų formatų
+		\item Duomenų apdorojimas
+		\item Algoritmai
+		\item Algoritmų testavimas
+		\item Rezultatų vizuoalizacija
+	\end{enumerate}
+
+
+
+\section{Algoritmų testavimas/kokybės vertinimas}
+	\toadd{purity and entropy}
+	viena iš fundamentalių neprižiūrimo mokymosi problemų yra modelių testavimas. skirtingai nei „prižurimame mokymasi“ kur svarbu atdidėti dali duomenų su kuriais nėra mokomasi o tik testuojama sugeneruoti modeliai, „neprižiurimame mokymasi“ mes to nelgalim atlikti\ldots bet egzsituoja keltatas metodu kaip galima patikrinti sudarytus klasterius.
+	\begin{itemize}
+		\item pirma galima sugeneruotus klasterius leisti tikrinti \textbf{žmonėms }. tam yra keli būdai. galima tiesiog duoti sugeneruotus klasterius ir bandyti nuspresti ar jie tinkami. taipat galima parainkti du atsitiktinius dokumentus ir spėti ar jie turėtu būti viename ar atskiruose klasteriuose, ir tada palyginti su kompiuterio sugeneruotu rezultatu. 
+		\item taip yra metodų kaip atlikti testavimą automatiškai. vienas jų paimti 2(ar daugiau) dokumentus iš skirtingų klasterių ir apkeisti juos vietomis, tada patikrinti klasteriu //stipruma. tai atlike dokybe kartų galime spręsti kaip sėkmingai sekėsi klasterizacija, jeigu apmainant jų kokybė nukrito tai reikškia, kad dokumentai sėkmingai suklaserizuoti, bet jeigu nesikeite tai reiške, kad klasteriai mažai vienas nuo kito skiresi ir klasreizacija nesekminga.
+	\end{itemize}
+
+\section{Rezultatų vizuoalizacija}
+	dažnai norėdami geriau pažinti (ar testuoti) klasterizacijos rezultatus mes galime juo vizuolizuoti. vizulaizacijos gali buti įvairios ir dažnai priklauso nuo algoritmo rūšies, bet dažniausiai naudojama \textbf{point cloud} vizualizacijos. jose matosi pagal kokius parameturs (ašis) buvo klasterizuojama ir kaip atrodo sudaryti klasteriai.taip pat galima pridėti papildomų indikatorių, priklausomų nuo algoritmo. pavyzdžiui klasteriams sudarytiems k-means metodu galima nubraižyti atitinkamus „centrinius taškusn“.
+
+\section{Susijusios, aktuoalios problemos}
+	\subsection{keyword extraction}
+	\subsection{cluster labeling}
+	\subsection{document classification}
+	\subsection{dimensionality reduction}
+	dimensionality reduction methods can be considered a subtype of soft clustering; for documents, these include latent semantic indexing (truncated singular value decomposition on term histograms) and topic models.
 \sectionnonum{Išvados}
-Išvadose ir pasiūlymuose, nekartojant atskirų dalių apibendrinimų,
-suformuluojamos svarbiausios darbo išvados, rekomendacijos bei pasiūlymai.
+	%išvadose ir pasiūlymuose, nekartojant atskirų dalių apibendrinimų, suformuluojamos svarbiausios darbo išvados, rekomendacijos bei pasiūlymai.
 
 \sectionnonum{Conclusions}
-Šiame skyriuje pateikiamos išvados (reziume) anglų kalba.
+  Šiame skyriuje pateikiamos išvados (reziume) anglų kalba.
+  
 
-
-\printbibliography[heading=bibintoc] % Literatūros šaltiniai aprašomi
-% bibliografija.bib faile. Šaltinių sąraše nurodoma panaudota literatūra,
-% kitokie šaltiniai. Abėcėlės tvarka išdėstoma tik darbe panaudotų (cituotų,
+\printbibliography[heading=bibintoc] % literatūros šaltiniai aprašomi
+% bibliografija.bib faile. šaltinių sąraše nurodoma panaudota literatūra,
+% kitokie šaltiniai. abėcėlės tvarka išdėstoma tik darbe panaudotų (cituotų,
 % perfrazuotų ar bent paminėtų) mokslo leidinių, kitokių publikacijų
-% bibliografiniai aprašai (šiuo punktu pasirūpina LaTeX). Aprašai pateikiami
+% bibliografiniai aprašai (šiuo punktu pasirūpina latex). aprašai pateikiami
 % netransliteruoti.
 
 \appendix  % Priedai
@@ -85,29 +163,5 @@ suformuluojamos svarbiausios darbo išvados, rekomendacijos bei pasiūlymai.
 % parengta, medžiaga. Savarankiški priedai gali būti pateikiami kompiuterio
 % diskelyje ar kompaktiniame diske. Priedai taip pat vadinami ir numeruojami.
 % Tekstas su priedais siejamas nuorodomis (pvz.: \ref{img:mlp}).
-
-\section{Niauroninio tinklo struktūra}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{img/MLP}
-    \caption{Paveikslėlio pavyzdys}
-    \label{img:mlp}
-\end{figure}
-
-
-\section{Eksperimentinio palyginimo rezultatai}
-% tablesgenerator.com - converts calculators (e.g. excel) tables to LaTeX
-\begin{table}[H]\footnotesize
-  \centering
-  \caption{Lentelės pavyzdys}
-  {\begin{tabular}{|l|c|c|} \hline
-    Algoritmas & $\bar{x}$ & $\sigma^{2}$ \\
-    \hline
-    Algoritmas A  & 1.6335    & 0.5584       \\
-    Algoritmas B  & 1.7395    & 0.5647       \\
-    \hline
-  \end{tabular}}
-  \label{tab:table example}
-\end{table}
 
 \end{document}
