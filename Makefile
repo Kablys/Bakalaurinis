@@ -3,6 +3,10 @@ generuoti:
 	biber bakalaurinis
 	xelatex bakalaurinis.tex
 	open bakalaurinis.pdf || xdg-open bakalaurinis.pdf
+	
+fast:
+	xelatex -interaction=nonstopmode -output-driver='xdvipdfmx -z0' bakalaurinis.tex 
+	xdg-open bakalaurinis.pdf
 
 ubuntu:
 	echo "Diegiamas LaTeX (PdfLaTeX, XeTeX ir kt.)"
