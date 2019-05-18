@@ -11,7 +11,8 @@
 \usepackage{graphicx}
 \usepackage{hyperref}  % Nuorodų aktyvavimas
 \usepackage{listings}
-\usepackage{subfig}
+%\usepackage{subfig}
+\usepackage{subcaption} % For subfigure to work
 \usepackage{url}
 \usepackage{wrapfig}
 
@@ -35,7 +36,7 @@
 \faculty{Matematikos ir informatikos fakultetas}
 \department{Informatikos katedra}
 \papertype{Baigiamasis bakalauro darbas}
-\title{Dokomentų klasterizavimas}
+\title{Dokumentų klasterizavimas}
 \titleineng{Document clustering}
 \status{4 kurso 1 grupės studentas}
 \author{Dominykas Ablingis}
@@ -50,6 +51,9 @@
 
 \newcommand{\ltang}[2]{#1 (angl.\  \textit{#2})}
 \newcommand{\BigO}[1]{$\mathcal{O}(#1)$}
+
+\providecommand{\tightlist}{%
+	  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \begin{document}
 
@@ -76,6 +80,7 @@ Kad pasiekti šio tikslo buvo iškelti tokie \textbf{darbo uždaviniai:}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   Išgauti duomenų rinkinį.
 \item
@@ -124,9 +129,7 @@ dviejuose -- duomenų rinkiniai, sudaryti suvienodinus panašius žodžius.
 Gautų klasterizavimo rezultatų kokybė vertinama trimis išoriniais
 kriterijais, požymių pašalinimo kiekiu ir požymių lentelėmis.
 Išanalizuojami eksperimentų rezultatai ir nustatoma, kurie iš tekstų
-filtravimo metodų yra tinkamiausi lietuviškiems tekstams.
-
-Darbo pabaigoje pateikiamos išvados ir pasiūlymai.
+filtravimo metodų yra tinkamiausi lietuviškiems tekstams. Darbo pabaigoje pateikiamos išvados ir pasiūlymai.
 
 \section{Teorija ir pasirengimas eksperimentams}
 
@@ -214,7 +217,7 @@ buvo nuspręsta eksperimento su žymėmis neatlikti.
   \begin{tabular}{|l|r|r|r|r|r|r|r|r|}
   \hline
   Žymių kiekis & 0       & 1       & 2       & 3       & 4       & 5       & 6      & ≥ 7    \\ \hline
-  Straipsnių   & 547     & 481     & 786     & 857     & 549     & 534     & 136    & 168    \\ \hline
+  Straipsnių kiekis   & 547     & 481     & 786     & 857     & 549     & 534     & 136    & 168    \\ \hline
   Procentais   & 13,48\% & 11,85\% & 19,37\% & 21,12\% & 13,53\% & 13,16\% & 3,35\% & 4,14\% \\ \hline
   \end{tabular}
   \end{table}
@@ -340,46 +343,7 @@ išspręsti daugiareikšmiškumo, tada pagal nustatymus grąžina arba
 labiausiai tikėtiną variantą, arba visus galimus variantus apsuptus
 „\textless ambiguous\textgreater“ žyme. Anotatorius taip pat atpažįsta
 simbolius, romėniškus skaičius, dalį tikrinių daiktavardžių, akronimas
-ir sutrumpinimus. Veikimo pavyzdys:
-
-\noindent Įvestis:
-
-\noindent \textit{Tikroji kalbos vartosena atsiskleidžia tik tekste.}
-
-\noindent Išvestis:
-
-\scriptsize
-\noindent \texttt{
-<word="Tikroji" lemma="tikras" type="bdv., teig, nelygin. l., įvardž., mot. g., vns., V."/>\\
-<space/>\\
-<ambiguous>\\
-<word="kalbos" lemma="kalba" type="dkt., mot. g., vns., K."/>\\
-<word="kalbos" lemma="kalba" type="dkt., mot. g., dgs., V."/>\\
-</ambiguous>\\
-<space/>\\
-<ambiguous>\\
-<word="vartosena" lemma="vartosena" type="dkt., mot. g., vns., V."/>\\
-<word="vartosena" lemma="vartosena" type="dkt., mot. g., vns., Įn."/>\\
-</ambiguous>\\
-<space/>\\
-<ambiguous>\\
-<word="atsiskleidžia" lemma="atsiskleisti(-džia,-dė)" type="vksm., teig., sngr., tiesiog. n., es. l., vns., 3 asm."/>\\
-<word="atsiskleidžia" lemma="atsiskleisti(-džia,-dė)" type="vksm., teig., sngr., tiesiog. n., es. l., dgs., 3 asm."/>\\
-</ambiguous>\\
-<space/>\\
-<ambiguous>\\
-<word="tik" lemma="tikti(-nka,-ko)" type="vksm., teig., nesngr., liep. n., vns., 2 asm."/>\\
-<word="tik" lemma="tik" type="prv., teig., nelygin. l."/>\\
-<word="tik" lemma="tik" type="dll."/>\\
-<word="tik" lemma="tik" type="jng."/>\\
-<word="tik" lemma="tik" status="galimas" type="išt."/>\\
-</ambiguous>\\
-<space/>\\
-<word="tekste" lemma="tekstas" type="dkt., vyr. g., vns., Vt."/>\\
-<sep="."/>\\
-<p/>
-}
-\normalsize
+ir sutrumpinimus. Veikimo pavyzdį žr. priede \ref{morfAnot}.
 
 Kadangi anotatorius sugeba atskirti kokiai kalbos daliai\footnote{Anotatorius
   veiksmažodžio bendratį, būdinius, dalyvius, padalyvius, pusdalyvius
@@ -407,7 +371,7 @@ Dalelytė                  & 1,79\%                          & 1,92\%           
 Ištiktukas                & 0,05\%                          & 0,06\%                                                                                         & 0,01\%                                                                                     \\ \hline
 Jungtukas                 & 8,40\%                          & 9,00\%                                                                                         & 7,62\%                                                                                     \\ \hline
 Jaustukas                 & 0,21\%                          & 0,22\%                                                                                         & 0,18\%                                                                                     \\ \hline
-Nežinomas                 & 6,58\%                          & X                                                                                              & X                                                                                           \\ \hline
+Nežinomas                 & 6,58\%                          & --                                                                                             & --                                                                                         \\ \hline
 Prielinksnis              & 4,67\%                          & 5,00\%                                                                                         & 4,65\%                                                                                     \\ \hline
 Prieveiksmis              & 6,09\%                          & 6,52\%                                                                                         & 6,72\%                                                                                     \\ \hline
 Romėniški skaičiai        & 0,13\%                          & 0,14\%                                                                                         & 0,10\%                                                                                     \\ \hline
@@ -631,7 +595,7 @@ Iš tf-idf apibrėžimo seka kelios savybės:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.65\textwidth]{./img/image25.png}
+	\includegraphics[width=0.6\textwidth]{./img/image25.png}
   \caption{Vektorinės erdvės modelio vizualizacija\\
   Eilutės -- žodžių vektoriai, stulpeliai -- dokumentų vektoriai.\\
   Šaltinis: \cite{marksberry2014employee}}
@@ -688,6 +652,28 @@ metodus\footnote{Klasterizavimo metodai buvo detaliau
   \item
     Ward metodas -- atstumas tarp klasterių centroidų.
   \end{itemize}
+  
+  \begin{figure}[!ht]
+    \centering
+    \begin{subfigure}[b]{.3\textwidth}
+      \includegraphics[scale=1]{img/complete}
+      \centering
+      \caption{Tolimiausio kaimyno}
+    \end{subfigure}
+    \begin{subfigure}[b]{.3\textwidth}
+      \includegraphics[scale=1]{img/average}
+      \centering
+      \caption{Vidutinių atstumų}
+    \end{subfigure}
+    \begin{subfigure}[b]{.3\textwidth}
+      \includegraphics[scale=1]{img/ward}
+      \centering
+      \caption{Ward metodas}
+    \end{subfigure}
+    \caption{Atstumo matavimas / jungimo metodai\\
+             Šailtinis: https://www.youtube.com/watch?v=vg1w5ZUF5lA}
+  \end{figure}
+
 \item
   \textbf{DBSCAN} (angl. \emph{density-based spatial clustering of
   applications with noise}) -- metodas kurdamas klasterius, remiasi
@@ -788,7 +774,7 @@ klasterizavimo metodams buvo nustatyti šie parametrai:\footnote{Sci-kit
 \begin{itemize}
 \item
   \textbf{DBSCAN} -- šiam metodui neįmanoma nurodyti grąžinamo klasterių
-  skaičiaus, reikia papildomai reguliuoti šiuos parametrus:
+  kiekio, reikia papildomai reguliuoti šiuos parametrus:
 
   \begin{itemize}
   \item
@@ -968,7 +954,7 @@ Kur buvo prasminga, rezultatai buvo papildomai palyginti, atlikus
 klasterių perrikiavimą\footnote{Perrikiavimas veikia taip: kiekvienam
   klasteriui priskiriamas naujas indeksas pagal tai, kuriai kategorijai
   daugiausia jo elementų priklauso. To pasekoje, klasteriai gali būti
-  sujungti į vieną (tai ypač svarbu, jei klasterių skaičius būtų
+  sujungti į vieną (tai ypač svarbu, jei klasterių kiekis būtų
   didesnis nei kategorijų).}. Nors šio darbo tyrime buvo išbandyti visi
 vertinimo būdai, darbe nuspręsta pasinaudoti išoriniais kriterijais,
 požymių lentelėmis ir papildomai stebėti požymių kiekį.
@@ -1614,6 +1600,7 @@ iš jų geriausiai tinka lietuviškiems tekstiniams dokumentams.
 Siekiant užsibrėžto tikslo buvo atlikti šie darbai:
 
 \begin{itemize}
+\tightlist
 \item
   Sudarytas didelės apimties lietuviškų tekstinių duomenų rinkinys iš
   5-ių skirtingų kategorijų ir 4058 skirtingų straipsnių. Kaip galimi
@@ -1648,6 +1635,7 @@ Siekiant užsibrėžto tikslo buvo atlikti šie darbai:
 Kaip parodė eksperimentų rezultatai:
 
 \begin{itemize}
+\tightlist
 \item
   Klasterizavimui tinkamiausias duomenų šaltinis yra straipsnių tekstai,
   kiek prasčiau tinka įvadai ir visai netinkami straipsnių pavadinimai.
@@ -1682,6 +1670,7 @@ Atliekant eksperimentus buvo pastebėta keletas sričių, kurias verta
 detaliau patyrinėti:
 
 \begin{itemize}
+\tightlist
 \item
   Išbandyti skirtingų metodų kombinacijas. Prasmingiausia būtų pabandyti
   sujungti nereikšmingų žodžių metodą su morfologine analize.
@@ -1696,7 +1685,7 @@ detaliau patyrinėti:
   simbolius).
 \item
   Išbandyti nuo kokios \texttt{min\_df} ir \texttt{max\_df} parametrų reikšmės rezultatai
-  pradeda blogėti ir kaip jie yra priklausomi nuo dokumentų skaičiaus.
+  pradeda blogėti ir kaip jie yra priklausomi nuo dokumentų kiekio.
 \item
   Pakartoti maksimalios dalies (žr. sk. \ref{maxdftest}) eksperimentą su LM
   algoritmu, bet su didesnėmis \texttt{n\_init} reikšmėmis.
@@ -1707,6 +1696,7 @@ nesusijusios su iškeltais uždaviniais, bet vertos patyrinėti ir
 įvertinti su lietuviškais tekstais.
 
 \begin{itemize}
+\tightlist
 \item
   Išbandyti kitus klasterizavimo metodus:
 
@@ -1734,33 +1724,42 @@ nesusijusios su iškeltais uždaviniais, bet vertos patyrinėti ir
 
 \sectionnonum{Conclusions}
 
-With ever-increasing amount of data being produced it is becoming more
-and more relevant to find a better ways of searching, organizing and
-making insights into data. Work with a big amounts of text data could be
-improved by using document clustering methods. However, to get good
-clustering results it is important to properly prepare a data sets for
-clustering. There are a lot of methods for filtering text data and
-sometimes it is not clear which ones are best for the task at hand. So the
-main objective of this work was: to evaluate different ways of preparing text
-data for clustering and find out which of them works best for Lithuanian language
-text.
+With ever-increasing amounts of data being produced it is becoming more and more
+relevant to find better ways of searching, organizing, and gaining insights from
+that data. Work on large amounts of textual data can be improved by document
+clustering methods. However, to get good clustering results it is important
+to properly process data sets for Clustering.
 
-To accomplish the main objective, all relevant topics for document clustering
-were addressed. Extracting data set from a Lithuanian news website.
-Lexical analysis to break text into a series of words. Three ways to
-remove unnecessary word (stop-words) from a text: stop-word lists, parts
-of speech, frequency of word in the data set. Three ways of combining
-similar words into one: extracting word stems from words, turning word
-into its lemma (dictionary form), split words into n-grams. Numerical
-feature extraction from the text data using tf-idf. Overview of different
-types of clustering methods. Types and examples of cluster evaluation.
+There are a lot of methods for processing textual data and sometimes it is not
+clear which ones are best for the task at hand. Thus the main objective of this
+work was to evaluate different ways of processing textual data for clustering and
+to find out which of them work best for texts written in Lithuanian language.
 
-In conclusion for best clustering results: as a source of a data article
-texts were best, for removing stop-words it is best to remove parts of
-speech, for morphological analysis 4-grams are the best. However, all
-evaluated methods, had advantages and drawbacks depending what is the
-goal: the best possible clustering, intelligible results or difficulty
-of implementation.
+To accomplish this objective, all relevant topics and tasks for document clustering were addressed.
+
+\begin{itemize}
+  \item
+    Extracting a data set from a Lithuanian news website.
+  \item
+    Lexical analysis to break text into a series of words.
+  \item
+    Three ways to remove unnecessary words (stop-words) from a text: stop-word lists, parts of speech and frequency of words in the data set.
+  \item
+    Three ways of combining similar words into one: extracting stem from word, turning word into its lemma (dictionary form) and splitting word into n-grams.
+  \item
+    Numerical feature extraction from the text data using tf-idf.
+  \item
+    Overview of different types of clustering methods.
+  \item 
+    Types and examples of cluster evaluation.
+\end{itemize}
+
+In conclusion, experimental results have shown that for the best clustering results
+use news article texts as a data source; for removing stop-words it is best to remove
+parts of speech; for morphological analysis use 4-grams. However, all evaluated
+methods had advantages and drawbacks depending on what the goal is: the best possible
+clustering, intelligible results or difficulty of implementation.
+
 
 \printbibliography[heading=bibintoc] % literatūros šaltiniai aprašomi
 % bibliografija.bib faile. šaltinių sąraše nurodoma panaudota literatūra,
@@ -1775,4 +1774,44 @@ of implementation.
 % diskelyje ar kompaktiniame diske. Priedai taip pat vadinami ir numeruojami.
 % Tekstas su priedais siejamas nuorodomis (pvz.: \ref{img:mlp}).
 
+\section{Morfologinio anotatoriaus veikimo pavizdys}\label{morfAnot}
+
+\noindent Įvestis:
+
+\noindent \textit{Tikroji kalbos vartosena atsiskleidžia tik tekste.}
+
+\noindent Išvestis:
+
+\scriptsize
+\noindent \texttt{
+<word="Tikroji" lemma="tikras" type="bdv., teig, nelygin. l., įvardž., mot. g., vns., V."/>\\
+<space/>\\
+<ambiguous>\\
+<word="kalbos" lemma="kalba" type="dkt., mot. g., vns., K."/>\\
+<word="kalbos" lemma="kalba" type="dkt., mot. g., dgs., V."/>\\
+</ambiguous>\\
+<space/>\\
+<ambiguous>\\
+<word="vartosena" lemma="vartosena" type="dkt., mot. g., vns., V."/>\\
+<word="vartosena" lemma="vartosena" type="dkt., mot. g., vns., Įn."/>\\
+</ambiguous>\\
+<space/>\\
+<ambiguous>\\
+<word="atsiskleidžia" lemma="atsiskleisti(-džia,-dė)" type="vksm., teig., sngr., tiesiog. n., es. l., vns., 3 asm."/>\\
+<word="atsiskleidžia" lemma="atsiskleisti(-džia,-dė)" type="vksm., teig., sngr., tiesiog. n., es. l., dgs., 3 asm."/>\\
+</ambiguous>\\
+<space/>\\
+<ambiguous>\\
+<word="tik" lemma="tikti(-nka,-ko)" type="vksm., teig., nesngr., liep. n., vns., 2 asm."/>\\
+<word="tik" lemma="tik" type="prv., teig., nelygin. l."/>\\
+<word="tik" lemma="tik" type="dll."/>\\
+<word="tik" lemma="tik" type="jng."/>\\
+<word="tik" lemma="tik" status="galimas" type="išt."/>\\
+</ambiguous>\\
+<space/>\\
+<word="tekste" lemma="tekstas" type="dkt., vyr. g., vns., Vt."/>\\
+<sep="."/>\\
+<p/>
+}
+\normalsize
 \end{document}
