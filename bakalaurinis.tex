@@ -66,7 +66,7 @@
 gausėjant informacijos kiekiams, vis aktualesnė tampa kokybiška ir
 greita reikiamos informacijos paieška, jos organizavimas ir naujų
 įžvalgų išgavimas. Darbą su dideliais tekstinės informacijos kiekiais
-galėtų pagreitinti ir palengvinti įprastai skaitmeninių duomenų analizei
+galėtų pagreitinti ir palengvinti įprastai skaitinių duomenų analizei
 naudojami klasterizavimo metodai. Norint pasiekti gerų klasterizavimo
 rezultatų, svarbu tinkamai parengti tekstinius duomenų rinkinius. Tam
 yra daug skirtingų metodų ir ne visada aišku, kurie iš jų būtų
@@ -109,7 +109,7 @@ Rengiant tekstinių duomenų rinkinį klasterizavimui, pirmiausia
   pašalinimas ir panašių žodžių suvienodinimas (morfologine analizė).
   Visiems šiems metodams išbandyti ir palyginti atliekami eksperimentai.
 
-Turėdami apdorotą tekstą, toliau paverčiame jį į skaitmeninę formą,
+Turėdami apdorotą tekstą, toliau paverčiame jį į skaitinę formą,
   pritaikytą darbui su klasterizavimo metodais. Tam panaudojamas požymių
   išskyrimo metodas tf-idf.
 
@@ -126,7 +126,7 @@ rezultatai. Pirmame eksperimente skirtingais metodais suklasterizuojami
 ir palyginami duomenų šaltiniai, trijuose -- tekstinių duomenų
 rinkiniai, sudaryti pašalinus nereikšmingus žodžius, o likusiuose
 dviejuose -- duomenų rinkiniai, sudaryti suvienodinus panašius žodžius.
-Gautų klasterizavimo rezultatų kokybė vertinama trimis išoriniais
+Gautų klasterizavimo rezultatų kokybė vertinama trimis išoriniais kokybės vertinimo
 kriterijais, požymių pašalinimo kiekiu ir požymių lentelėmis.
 Išanalizuojami eksperimentų rezultatai ir nustatoma, kurie iš tekstų
 filtravimo metodų yra tinkamiausi lietuviškiems tekstams. Darbo pabaigoje pateikiamos išvados ir pasiūlymai.
@@ -155,7 +155,7 @@ galima alternatyva yra straipsnių žymės \cite{vzalinauskas2006individualiai}.
 Alternatyvių informacijos šaltinių naudojimas yra prasmingas, jeigu
 galime sumažinti apdorojamų duomenų kiekį (straipsnio tekstas gali būti
 sudarytas iš kelių šimtų žodžių, tuo tarpu turėti tik kelias žymes)
-arba, jeigu tas šaltinis pateikia koncentruotesnę informaciją (kai kurie
+arba, jeigu tame šaltinyje pateikiama koncentruota informacija (kai kurie
 naujienų portalai straipsnio įvade pateikia svarbiausius temos
 akcentus).
 
@@ -183,7 +183,7 @@ archyve iš 5-ių skirtingų kategorijų po 1000 straipsnių. Kategorijos
 buvo pasirinktos remiantis tuo, kad jas vieną nuo kitos
 galėtų lengvai atskirti eilinis vartotojas. Pasirinktos šios
 kategorijos: „Auto“, „Veidai“\footnote{Šios kategorijos straipsniuose
-  rašoma apie garsenybių gyvenimus.}, „Sportas“, „Mokslas“ ir
+  rašoma apie žinomus žmones.}, „Sportas“, „Mokslas“ ir
 „Verslas“.
 
 Po to, internetinio roboto pagalba išgavus reikiamus
@@ -213,7 +213,7 @@ buvo nuspręsta eksperimento su žymėmis neatlikti.
 
 \begin{table}[H]
   \centering
-  \caption{Straipsnių skaičius ir procentinė dalis su skirtingais žymių kiekiais}
+  \caption{Straipsnių kiekis ir procentinė dalis su skirtingais žymių kiekiais}
   \begin{tabular}{|l|r|r|r|r|r|r|r|r|}
   \hline
   Žymių kiekis & 0       & 1       & 2       & 3       & 4       & 5       & 6      & ≥ 7    \\ \hline
@@ -226,8 +226,8 @@ Likę tyrimo eksperimentai priklauso nuo to, koks duomenų šaltinis bus
 naudojamas. Norint išbandyti visus šaltinius, visus eksperimentus
 reikėtų kartoti po 3 kartus, todėl šiame etape nuspręsta pasirinkti
 vieną iš jų. Atsižvelgus į gerus rezultatus\footnote{Straipsnių tekstai
-  taip pat turėjo daugiausia unikalių žodžių (požymių), todėl gerai
-  tiktų teksto filtravimo metodų sugebėjimą mažinti požymių kiekį.},
+  taip pat turėjo daugiausia unikalių žodžių (požymių), todėl buvo
+  tinkamiausi tikrinti, kiek požymių pašalins skirtingi teksto filtravimo metodai.},
 straipsnių tekstai buvo pasirinktas kaip pagrindinis duomenų šaltinis.
 
 Visų kitų eksperimentų rezultatai bus papildomai lyginami su straipsnių
@@ -264,7 +264,7 @@ etape taip pat panaikinami visi skyrybos ženklai, nespausdinami
 simboliai ir skaičiai. Nors iš pirmo žvilgsnio atrodo paprasta, leksikos
 analizė kai kurioms sudėtingesnėms kalboms vis dar yra problematiška ir
 aktyviai tiriama sritis. Teksto apdorojimui taip pat yra problematiški
-žodžiai su ženklais viduje, pavyzdžiui, I.B.M., Vincas
+žodžiai su ženklais viduje, pavyzdžiui, Vincas
 Mykolaitis-Putinas, O'Reilly, pre-diabetes.
 
 Šiame darbe leksikos analizei buvo panaudota paprasta reguliarioji
@@ -291,8 +291,8 @@ jos rezultatai. Verta pastebėti, kad kai kurios frazės gali būti
 sudarytos iš atskirai nereikšmingų žodžių, bet būdamos kartu gali turėti
 prasmę (pvz., „to be or not to be“). Taip pat reikia atkreipti dėmesį,
 kad skirtingose srityse nereikšmingų žodžių žodynai gali skirtis (pvz.,
-internete žodis „nuoroda“ kur kas dažniau sutinkamas nei kitose srityse
-ir gali būti laikomas nereikšmingu).
+internete žodis „nuoroda“ kur kas dažniau sutinkamas nei kitose srityse, 
+todėl gali būti laikomas nereikšmingu).
 
 Šiai problemai spręsti įprastai sudaromas arba naudojamas specifinis
 kalbos ir srities žodynų junginys (angl. \emph{top-word dictionary}).
@@ -356,29 +356,29 @@ anotuoto teksto sandara \cite{utka2009davzninis}.
 
 \begin{table}[H]
   \centering
-	\caption{Kalbos dalių ir elementų procentinis pasiskirstymas.\\ 
+	\caption{Kalbos dalių ir elementų procentinis pasiskirstymas\\ 
 	Pirmame stulpelyje – šiame darbe naudotas tekstų rinkinys, 
 	antrame – tie patys duomenys tik be neatpažintų („Nežinomų“) 
-	žodžių, trečiame – palyginimui panaudoti [VDU] atlikto tyrimo duomenys.}
+	žodžių, trečiame – palyginimui panaudoti \cite{utka2009davzninis} tyrimo duomenys.}
 
 \begin{tabular}{|l|r|r|r|}
 \hline
-Kalbos dalys ir elementai & \multicolumn{1}{l|}{Procentais} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Procentais, be \\ nežinomų žodžių\end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Procentais\\iš \cite{utka2009davzninis} tyrimo\end{tabular}} \\ \hline
+Kalbos dalys ir elementai & \multicolumn{1}{l|}{Procentais} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Procentais, be \\ nežinomų žodžių\end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\cite{utka2009davzninis} tyrimo\\ duomenys\end{tabular}} \\ \hline
 Akronimas                 & 0,37\%                          & 0,40\%                                                                                         & 0,25\%                                                                                     \\ \hline
 Būdvardis                 & 6,14\%                          & 6,57\%                                                                                         & 7,34\%                                                                                     \\ \hline
 Daiktavardis              & 35,43\%                         & 37,92\%                                                                                        & 39,38\%                                                                                    \\ \hline
 Dalelytė                  & 1,79\%                          & 1,92\%                                                                                         & 1,98\%                                                                                     \\ \hline
 Ištiktukas                & 0,05\%                          & 0,06\%                                                                                         & 0,01\%                                                                                     \\ \hline
+Įvardis                   & 7,52\%                          & 8,05\%                                                                                         & 8,71\%                                                                                     \\ \hline
 Jungtukas                 & 8,40\%                          & 9,00\%                                                                                         & 7,62\%                                                                                     \\ \hline
 Jaustukas                 & 0,21\%                          & 0,22\%                                                                                         & 0,18\%                                                                                     \\ \hline
-Nežinomas                 & 6,58\%                          & --                                                                                             & --                                                                                         \\ \hline
 Prielinksnis              & 4,67\%                          & 5,00\%                                                                                         & 4,65\%                                                                                     \\ \hline
 Prieveiksmis              & 6,09\%                          & 6,52\%                                                                                         & 6,72\%                                                                                     \\ \hline
 Romėniški skaičiai        & 0,13\%                          & 0,14\%                                                                                         & 0,10\%                                                                                     \\ \hline
 Skaitvardis               & 1,08\%                          & 1,16\%                                                                                         & 0,96\%                                                                                     \\ \hline
 Sutrumpinimas             & 1,38\%                          & 1,48\%                                                                                         & 1,59\%                                                                                     \\ \hline
 Veiksmažodis              & 20,15\%                         & 21,57\%                                                                                        & 20,51\%                                                                                    \\ \hline
-Įvardis                   & 7,52\%                          & 8,05\%                                                                                         & 8,71\%                                                                                     \\ \hline
+Nežinomas                 & 6,58\%                          & --                                                                                             & --                                                                                         \\ \hline
 \end{tabular}
 \end{table}
 
@@ -394,7 +394,7 @@ kita laikant nereikšmingais žodžiais).
 Paprasčiausias ir universaliausias metodas pašalinti nereikšmingus
 žodžius yra pasinaudoti jų pasikartojimo kiekiais duomenų rinkinyje.
 Žodis, pasirodantis kiekviename tekste, tampa nevertingu, jeigu norima
-tekstus suskirstyti į atskiras grupes, bet žodis pasirodo tik viename ar
+tekstus suskirstyti į atskiras grupes, bet jeigu žodis pasirodo tik viename ar
 keliuose dokumentuose, tampa sunku jį priskirti grupei (klasteriui).
 
 Dėl tyrimui naudojamo požymių išskyrimo (angl. \emph{feature
@@ -498,7 +498,7 @@ Jeigu nėra galimybės pasinaudoti kamienų išgavimo arba lemavimo
 n-grams}), kurių pagalba galima išgauti artimus ar net geresnius
 rezultatus. N-gramos, tai gretimų elementų sekos iš teksto. Pavyzdžiui,
 žodžio „tekstas“ 4-grama būtų: „teks“, „ekst“, „ksta“, „stas“.
-Daugumai europietiškų kalbų geriausiai tinka $n$ = 4 \cite{mcnamee2008don}.
+Daugumai europietiškų kalbų geriausiai tinka 4-gramos \cite{mcnamee2008don}.
 
 Scikit-learn bibliotekoje n-gramos realizuotos požymių išskyrimo etape
 (šiuo atveju tf-idf). Yra du parametrai atsakingi už n-gramų veikimą:
@@ -537,9 +537,9 @@ Scikit-learn bibliotekoje n-gramos realizuotos požymių išskyrimo etape
   viršutines $n$ reikšmių intervalo ribas imtinai.
 \end{itemize}
 
-Eksperimento su n-gramomis \textbf{analyzer} parametrui buvo parinkta
+Eksperimento su n-gramomis \texttt{analyzer} parametrui buvo parinkta
 reikšmė „char\_wb“, nes ji buvo artimiausia kituose tyrimuose
-naudotiems metodams. \textbf{Ngram\_range} parametrui abi sekos reikšmės
+naudotiems metodams. \texttt{Ngram\_range} parametrui abi sekos reikšmės
 buvo nustatomos vienodos, nuo 1 iki 5. Reikšmės didesnės nei 5 nebuvo
 pasirinktos, nes jau su ja požymių kiekis pasiekė 147974 ir viršijo
 neapdoroto straipsnio požymių kiekį --141331. Su reikšme 6 požymių
@@ -549,7 +549,7 @@ didesnių skaičiavimo resursų.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./img/image7.png}
-	\caption{N-gramų (požymių) kiekis su $n$ reikšmėmis nuo 1 iki 10.\\
+	\caption{N-gramų (požymių) kiekis su $n$ reikšmėmis nuo 1 iki 10\\
   Horizontali linija -- tai neapdoroto teksto požymių kiekis. Kai $n$
   = 1, n-gramų net 93 (nors lietuvių kalboje tėra 32 unikalios raidės),
   nes tekstuose yra raidžių iš kitų kalbų abėcėlių.}
@@ -559,8 +559,8 @@ didesnių skaičiavimo resursų.
 \subsection{Požymių išskyrimas}\label{tfidf}
 
 Norint atlikti tekstinių duomenų analizę su dauguma klasterizavimo
-metodų, pirmiausia tekstai turi būti pateikiami skaitine išraiška, todėl
-iškyla problema, kaip tinkamai paversti tekstinius duomenis į
+metodų, pirmiausia tekstai turi būti pateikiami skaitine forma, todėl
+iškyla problema, kaip tinkamai tekstinius duomenis paversti į
 skaitinius. Nors yra daugybė požymių išskyrimo (angl. \emph{feature
 extraction}) metodų, bet geriausiai naudoti tuos, kurie pritaikyti
 duomenims \cite{alelyani2013feature}. Populiariausias tekstiniams duomenims skirtas
@@ -612,7 +612,7 @@ atrodyti.
   analizuojamų objektų (duomenų) matą. Yra sukurta daugybė skirtingų
   matų ir dažnai jų parinkimas priklauso nuo to, kokius duomenis
   analizuojame. Ankstesniuose žingsniuose tekstiniai duomenys buvo
-  paversti į skaitmeninius duomenis, todėl galima panaudoti daugumą
+  paversti į skaitinius duomenis, todėl galima panaudoti daugumą
   populiarių matų.
 
 Šiame skyriuje aptarsime keturis, populiarius \cite{wu2008top} ir skirtingai veikiančius, klasterizavimo
@@ -635,7 +635,7 @@ metodus\footnote{Klasterizavimo metodai buvo detaliau
   objektas priklauso visiems klasteriams su tikimybe.
 \item
   \textbf{Hierarchinis} (angl. \emph{hierarchical}) -- skirtingai nei
-  ankstesni metodai, šis sugeneruoja ne atskirus klasterius, bet
+  ankstesni du metodai, šis sugeneruoja ne atskirus klasterius, bet
   klasterių hierarchiją. Dėl to galime duomenyse atrasti kur kas
   sudėtingesnes struktūras. Bet šis metodas reikalauja, kad apibrėžtume
   kaip matuojami atstumai ne tik tarp objektų, bet ir tarp klasterių.
@@ -671,7 +671,7 @@ metodus\footnote{Klasterizavimo metodai buvo detaliau
       \caption{Ward metodas}
     \end{subfigure}
     \caption{Atstumo matavimas / jungimo metodai\\
-             Šailtinis: https://www.youtube.com/watch?v=vg1w5ZUF5lA}
+             Šaltinis: https://www.youtube.com/watch?v=vg1w5ZUF5lA}
   \end{figure}
 
 \item
@@ -695,14 +695,14 @@ klasterizavimui\footnote{Detaliai šis eksperimentas buvo aprašytas
 
 \subsubsection{Metodų parinkimas}\label{clustest}
 
-Rengiant tekstinių duomenų rinkinį klasterizavimui buvo atlikti šie
-žingsniai:
+Rengiant tekstinių duomenų rinkinį klasterizavimui, tarpinio eksperimento metu,
+buvo atlikti šie žingsniai:
 
 \begin{itemize}
 \item
   Panaudoti straipsnių tekstai kaip duomenų šaltinis.
 \item
-  Atliktas teksto filtravimas: leksinė analizė, naudojant sąrašą
+  Atliktas teksto filtravimas: leksikos analizė, naudojant sąrašą
   pašalinti nereikšmingi žodžiai, išgauti žodžių kamienai.
 \item
   Išskirti požymiai, panaudojus tf-idf metodą.
@@ -719,6 +719,7 @@ klasterizavimo metodams buvo nustatyti šie parametrai:\footnote{Sci-kit
   atstumo mato parametrų reikšmes.}
 
 \begin{itemize}
+\tightlist
 \item
   \textbf{K-vidurkių}
 
@@ -746,6 +747,7 @@ klasterizavimo metodams buvo nustatyti šie parametrai:\footnote{Sci-kit
     nepriklausytų nuo atsitiktinumo, nustatyta inicializavimo reikšmę --
     42.
   \end{itemize}
+  \pagebreak % for better looks
 \item
   \textbf{Lūkesčių-maksimizavimo}
 
@@ -791,13 +793,13 @@ klasterizavimo metodams buvo nustatyti šie parametrai:\footnote{Sci-kit
 \end{itemize}
 
 Klasteriai buvo įvertinti 4 skirtingais būdais, kurie detaliau bus
-aptarti \ref{eval} skyriuje. \ref{clusters} diagrama parodo klasterizavimo metodų rezultatus,
+aptarti \ref{eval} skyriuje. \ref{clusters} pav. parodo klasterizavimo metodų rezultatus,
 įvertintus naudojant išorinius kokybės vertinimo kriterijus.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./img/image27.png}
-  \caption{Klasterizavimo metodų rezultatai įvertinti naudojant išorinius
+  \caption{Klasterizavimo metodų rezultatai įvertinti naudojant išorinius kokybės vertinimo
   kriterijus}
   \label{clusters}
 \end{figure}
@@ -809,7 +811,7 @@ aptarti \ref{eval} skyriuje. \ref{clusters} diagrama parodo klasterizavimo metod
   Mažiausiai tinkamas DBSCAN metodas, nes eksperimento metu buvo gauti
   prasčiausi rezultatai ir reikalavo daugiausia parametrų reguliavimo.
   Nepavyko gauti prasmingo dydžio klasterių be triukšmo, todėl nebuvo
-  galima panaudoti išorinio vertinimo kriterijų.
+  galima panaudoti išorinio kokybės vertinimo kriterijų.
 \item
   Praktiškai tokie pat prasti rezultatai gauti naudojant hierarchinį
   vidutinių atstumų metodą.
@@ -825,7 +827,7 @@ aptarti \ref{eval} skyriuje. \ref{clusters} diagrama parodo klasterizavimo metod
 
 Atsižvelgus į tarpinio eksperimento rezultatus, buvo nuspręsta šio darbo
 pagrindiniame tyrime naudoti KV, LM ir Ward klasterizavimo
-metodus\footnote{Šio tyrimo metu panaudoti visi minėti klasterizavimo
+metodus\footnote{Šio tyrimo metu panaudoti visi \ref{clustering} skyriuje minėti klasterizavimo
   metodai, bet jie pasirodė taip pat prastai kaip ir tarpiniame
   eksperimente, todėl aptariant šio darbo rezultatus, nebus minimi.} su
 tokiais pat parametrais. Buvo panaudoti trys skirtingi metodai, nes šių
@@ -869,7 +871,7 @@ grupes. Egzistuoja 4 kriterijai klasterizavimo rezultatų kokybei
   duodama pora objektų ir klausiama, ar jie turėtų būti kartu, ar
   atskirai. Surinkę pakankamai rezultatų iš vertintojų, palyginame su
   rezultatais, gautais taikant klasterizavimo algoritmą. Taip pat šiuo
-  atveju galima taikyti duomenų vizualizaciją, deja tai tampa ypač
+  atveju galima taikyti duomenų vizualizaciją, deja, tai tampa ypač
   sudėtinga su didelės apimties duomenimis (tekstiniais dokumentais).
 \item
   \textbf{Netiesioginiai} (angl. \emph{indirect}) kriterijai įvertina ar
@@ -880,7 +882,7 @@ grupes. Egzistuoja 4 kriterijai klasterizavimo rezultatų kokybei
   (ar jų parametrais) ir parinkti tinkamiausią metodą.
 \end{enumerate}
 
-Eksperimente naudosime 3 išorinius kriterijus:
+Eksperimente naudosime 3 išorinius kokybės vertinimo kriterijus:
 
 \begin{enumerate}
   \item
@@ -914,7 +916,7 @@ Eksperimente naudosime 3 išorinius kriterijus:
     $n_{c,k}$ – objektų, priklausančių klasei $c$ ir priskirtų klasteriui $k$, kiekis.
   \item
     \ltang{\textbf{Išsamumas}}{completeness} \cite{rosenberg2007v} -- visi
-    klasės objektai priklauso tik vienam klasteriui.
+    klasės objektai priklauso tik vienam klasteriui:
   
     $$c={1-\frac {H(K|C)}{H(K)}}$$
   \end{enumerate}
@@ -927,7 +929,7 @@ klasterį, išsamumo kriterijus jį irgi įvertins tobulai. Nors šie
 kriterijai turi trūkumų, bet kartu jie suteikia daug informacijos apie
 klasterių savybes.
 
-Be šių kriterijų, tarpiniame eksperimente (žr. sk. \ref{clustest}) rezultatų kokybė dar buvo vertinta ir su keletu
+Be šių kriterijų, tarpinio klasterizavimo eksperimento (žr. sk. \ref{clustest}) rezultatų kokybė dar buvo vertinta ir su keletu
 kitų būdų, kuriuos galima būtų laikyti rankiniais kriterijais:
 
 \begin{itemize}
@@ -956,7 +958,7 @@ klasterių perrikiavimą\footnote{Perrikiavimas veikia taip: kiekvienam
   daugiausia jo elementų priklauso. To pasekoje, klasteriai gali būti
   sujungti į vieną (tai ypač svarbu, jei klasterių kiekis būtų
   didesnis nei kategorijų).}. Nors šio darbo tyrime buvo išbandyti visi
-vertinimo būdai, darbe nuspręsta pasinaudoti išoriniais kriterijais,
+vertinimo būdai, darbe nuspręsta pasinaudoti išoriniais kokybės vertinimo kriterijais,
 požymių lentelėmis ir papildomai stebėti požymių kiekį.
 
 \section{Eksperimentinio tyrimo rezultatai}
@@ -972,7 +974,7 @@ Visų tyrimų duomenys buvo suklasterizuoti k-vidurkių,
 lūkesčių-maksimizavimo ir Ward metodais. Eksperimentų metu gauti
 klasterizavimo rezultatai buvo įvertinti naudojant išorinius kokybės
 vertinimo kriterijus\footnote{Šie rezultatai pateikiami stulpelių
-  diagramoje. Nors naudojamų išorinių kriterijų galimų reikšmių
+  diagramoje. Nors naudojamų išorinių kokybės vertinimo kriterijų galimų reikšmių
   intervalai yra {[}-1; 1{]}, bet diagramos yra nuo 0 iki 0,8, nes į šį
   intervalą pateko visi rezultatai.}, požymių kiekį, požymių
 lenteles\footnote{Dėl didelio rezultatų kiekio pagrindiniame tekste
@@ -1009,7 +1011,7 @@ tinklu\footnote{\url{https://mif.vu.lt/cluster/}}.
 
 \begin{table}[H]
   \centering
-  \caption{Požymių kiekis skirtinguose duomenų šaltiniuose.}
+  \caption{Požymių kiekis skirtinguose duomenų šaltiniuose}
   \begin{tabular}{|l|l|l|l|}
   \hline
   Eksperimentas & Tekstai & Pavadinimai & Įvadai \\ \hline
@@ -1094,7 +1096,7 @@ vertingas duomenų šaltinis klasterizavimui ir verti papildomų
 eksperimentų.
 
 Straipsnių tekstai pasirodė geriausiai. Vertinant klasterizavimo
-rezultatus su išoriniais kriterijais, dviem iš trijų atvejų, tekstai
+rezultatus su išoriniais kokybės vertinimo kriterijais, dviem iš trijų atvejų, tekstai
 pasirodė geriausiai. Požymių lentelėje galima įžvelgti, kad klasteriai
  0 ir 2 yra apie sportą, 1 -- apie automobilius ir 4 yra apie
 verslą. Deja, klasteris 3 buvo sudarytas iš nereikšmingų žodžių
@@ -1177,14 +1179,12 @@ tekstinių duomenų rinkinyje).
   \normalsize
 \end{table}
 
-Nereikšmingų žodžių, pašalintų naudojant kalbos dalis, su KV metodu
-sudarytų klasterių, požymių lentelė.
-
 Šiame eksperimente buvo palyginti du metodai nereikšmingiems žodžiams
 pašalinti -- naudojant nereikšmingų žodžių sąrašą ir nereikšmingas
-kalbos dalis. Kaip parodė eksperimento rezultatai, pašalinus
-nereikšmingus žodžius naudojant kalbos dalių metodą, išorinių kriterijų
-rezultatai buvo šiek tiek geresni, nei naudojant sąrašą. KV ir LM
+kalbos dalis.
+Kaip parodė eksperimento rezultatai, taikant nereikšmingų kalbos dalių metodą,
+ išorinių kokybės vertinimo kriterijų rezultatai buvo šiek tiek geresni, nei naudojant sąrašą. 
+KV ir LM
 metodai parodė geresnius rezultatus, pašalinus nereikšmingus žodžius,
 nei lyginant su neapdorotais straipsnių tekstais, bet Ward metodas
 pasirodė praktiškai taip pat.
@@ -1201,8 +1201,8 @@ lentelės klasteryje 4, kur net 5 iš 10 žodžių prasideda kamienu
 metodai.
 
 Požymių kiekio sumažinimas, naudojant kalbos dalis, taip pat pasirodė
-geriau -- panaikino 61415 (43,45 \%) požymius, tuo tarpu naudojant
-sąrašą (kuris sudarytas iš 485 žodžių.) -- tik 300 (0,21 \%). Iš šio
+geriau -- panaikino 61415 (43,45 \%) požymių, tuo tarpu naudojant
+sąrašą (sudarytą iš 485 žodžių) -- tik 300 (0,21 \%) požymių. Iš šio
 rezultato galima daryti išvadą, kad nebūtina atlikti didelių pakeitimų
 duomenų rinkinyje, kad gauti geresnius rezultatus.
 
@@ -1249,30 +1249,30 @@ pat gerų rezultatų.
 Šiame ir sekančiame eksperimente išbandėme nereikšmingų žodžių
 pašalinimą, pasinaudodami pačio tekstų rinkinio savybe -- žodžių
 pasikartojimų dažniais. Šiame eksperimente buvo palyginta, kokią įtaką
-klasterizavimo kokybei turi pašalinimas žodžių pagal minimalų jų
+klasterizavimo kokybei turi žodžių pašalinimas pagal minimalų jų
 pasikartojimo kiekį duomenų rinkinyje (nustatomą parametru
 \texttt{min\_df} su reikšmėmis nuo 2 iki 10, neapdorotas tekstas
-atitinka reikšmę 1), kitaip tariant, retus žodžius.
+atitinka reikšmę 1), kitaip tariant, retų žodžių pašalinimas.
 
-Pagal išorinių kriterijų rezultatus galima matyti, kad buvo pagerinti
+Iš išorinių kokybės vertinimo kriterijų rezultatų galima matyti, kad buvo pagerinti
 visų trijų klasterizavimo metodų rezultatai:
 
 \begin{itemize}
 \item
-  KV metodo rezultatai gerėjo iki \texttt{min\_df} 3 ir tada išsilygino, su
+  KV metodo pateikti rezultatai gerėjo iki \texttt{min\_df} 3 ir tada išsilygino, su
   nežymiu pakilimu \texttt{min\_df} 7. Rezultatai nebuvo tokie geri kaip
-  ankstesniame eksperimente, bet vis tiek buvo geresni, palyginti su
+  \ref{stoptest} skyriaus eksperimente, bet vis tiek buvo geresni, palyginti su
   neapdorotu tekstu.
 \item
-  LM metodo rezultatai buvo nestabilūs. Su \texttt{min\_df} 2 rezultatai buvo
+  LM metodo pateikti rezultatai buvo nestabilūs. Su \texttt{min\_df} 2 rezultatai buvo
   blogesni nei su neapdorotu tekstu, o su \texttt{min\_df} 3, pasiekė geriausią
   rezultatą ir toliau osciliavo (su lyginiais parametrais rezultatai
   blogesni, su nelyginiais -- geresni), bet išliko geresni nei su
   neapdorotu tekstu.
 \item
-  Ward metodo rezultatai gerėjo iki \texttt{min\_df} 5 ir tada išsilygino.
-  Rezultatai buvo žymiai geresni nei ankstesniame eksperimente, o su
-  \texttt{min\_df} 5 Rand rezultatai net viršijo ankstesnio eksperimento
+  Ward metodo pateikti rezultatai gerėjo iki \texttt{min\_df} 5 ir tada išsilygino.
+  Rezultatai buvo žymiai geresni nei \ref{stoptest} skyriaus eksperimente, o su
+  \texttt{min\_df} 5, kokybės vertinimo Rand kriterijum rezultatai net viršijo \ref{stoptest} skyriaus eksperimento
   geriausius rezultatus.
 \end{itemize}
 
@@ -1359,13 +1359,13 @@ Ward metodu -- pablogėjo:
 
 \begin{itemize}
 \item
-  KV metodo rezultatai su \texttt{max\_df} 0.9 reikšme pablogėjo, bet su 0.8
+  KV metodo peteikti rezultatai su \texttt{max\_df} 0.9 reikšme pablogėjo, bet su 0.8
   reikšme smarkiai pagerėjo, o su likusiomis reikšmėmis, stebima nežymi
   rezultatų gerėjimo tendencija. Bendrai galima pastebėti, kad
   rezultatai pagal kokybę patenka per vidurį tarp anksčiau aprašytų
   dviejų eksperimentų rezultatų.
 \item
-  LM metodo rezultatai buvo labai nestabilūs. Galima įžvelgti
+  LM metodo peteikti rezultatai buvo labai nestabilūs. Galima įžvelgti
   tendenciją, kad nuo 0.9 reikšmės kas antras rezultatas vis gerėjo (iš
   šios sekos išsiskyrė blogesniais rezultatais tik 0.1 reikšmė), o nuo
   0.8 -- kas antras rezultatas buvo blogesnis už praėjusį.Tikėtina, kad
@@ -1375,7 +1375,7 @@ Ward metodu -- pablogėjo:
     \ref{clustest} skyriuje, LM realizacijoje
     numatytas \emph{n\_init} parametras lygus 1.}.
 \item
-  Ward metodo rezultatai pasirodė prasčiau, nei neapdorotas tekstas ir
+  Ward metodo peteikti rezultatai pasirodė prasčiau, nei neapdorotas tekstas ir
   praktiškai nesikeitė su skirtingomis \texttt{max\_df} reikšmėmis. Vienintelė
   išimtis buvo 0.7 reikšmė. Bendrai galima pastebėti, kad norint gauti
   gerus rezultatus su šiuo metodu, reikia panaikinti ne dažnus o retus
@@ -1395,7 +1395,7 @@ nereikšmingų žodžių sąrašą).
 
 Apibendrinus maksimaliai pasikartojančių žodžių kiekio eksperimento
 rezultatus, galima teigti, kad šis metodas yra vertingas gerinant
-klasterių, parengtų su dalimi klasterizavimo metodų, kokybę, padeda
+klasterių, parengtų su KV ir LM klasterizavimo metodų, kokybę, padeda
 klasterius padaryti suprantamesnius, bet požymių kiekį sumažina
 nereikšmingai. Kaip ir minimalaus kiekio metodas (žr. sk. \ref{mindftest}), šis
 metodas lengvai pritaikomas įvairiems duomenims, paprastai realizuojamas
@@ -1403,7 +1403,7 @@ ir kombinuojamas su kitais metodais.
 
 \subsection{Morfologinė analizė}
 
-\subsubsection{Kamienų išgavimas ir lemavimas}
+\subsubsection{Kamienų išgavimas ir lemavimas}\label{stemAndLem}
 
 \begin{figure}[H]
 	\centering
@@ -1471,7 +1471,7 @@ Klasteris 4 & telefonas iphone išmanus ir programėlė būti apple ekranas įre
 Šiame eksperimente buvo palyginti du metodai morfologinei analizei
 atlikti -- kamienų išgavimo programos (toliau -- stemeris) ir lemavimo
 programos (toliau -- lemuoklis) rezultatai. Įvertinę klasterizavimo
-rezultatų kokybę išoriniais kriterijais, matome, kad stemeris pasirodė
+rezultatų kokybę išoriniais kokybės vertinimo kriterijais, matome, kad stemeris pasirodė
 pastebimai geriau visuose eksperimentuose. Ward metodas aplamai
 geriausiai pasirodė iš visų klasterizavimo metodų.
 
@@ -1486,23 +1486,23 @@ ir įskaitomi, nei stemerio.
 Analizuojant požymių kiekį galima pastebėti, kad abu metodai pašalino
 panašų kiekį požymių, palikdami maždaug trečdalį jų. Vis tik, tarp šių
 metodų yra reikšmingas 9180 požymių skirtumas. Viena iš galimų
-priežasčių yra ta, kad stermeris yra „agresyvesnis“, nei lemuoklis. Kai
+priežasčių yra ta, kad stemeris yra „agresyvesnis“, nei lemuoklis. Kai
 lemuoklis nežino kaip taisyklingai išgauti lemą, palieką žodį
 nepakeistą, o stemeris remiasi paprastesnėmis taisyklėmis, todėl gali
 dažnai išgauti šaknį, kur jos nėra\footnote{Pavyzdžiui anglišką žodį
   „Apple“ kamienų išgavimo programa grąžins „appl“, o lemuoklis --
-  „Apple“.}. Tai galėjo įtakoti geresnius išorinių kriterijų
+  „Apple“.}. Tai galėjo įtakoti geresnius išorinių kokybės vertinimo kriterijų
 rezultatus.
 
 Apibendrinant galima teigti, kad abu metodai kokybiškai atlieka
-morfologinės variacijos pašalinimą. Kaip matyti iš išorinių kriterijų
-rezultatų, stemeris sugeneruoja geresnius klasterius išorinių kriterijų
+morfologinės variacijos pašalinimą. Kaip matyti iš išorinių kokybės vertinimo kriterijų
+rezultatų, stemeris sugeneruoja geresnius klasterius išorinių kokybės vertinimo kriterijų
 atžvilgiu, pašalina daugiau požymių ir yra lengviau realizuojamas
 (reikalingas kalbos taisyklių failas), bet rezultatai yra sunkiau
 įskaitomi ir kombinuojami su kitais metodais, nes yra destruktyvūs.
 Lemuoklio klasterizavimo rezultatai yra lengviau įskaitomi ir
 kombinuojami su kitais metodais (nes grąžina pilnus žodžius). Tačiau,
-kaip matyti iš išorinių kriterijų, lemuoklis sugeneruoja prastesnius
+kaip matyti iš išorinių kokybės vertinimo kriterijų, lemuoklis sugeneruoja prastesnius
 klasterius, pašalina mažiau požymių ir yra sudėtingiau realizuojamas
 (reikalinga atskira programa).
 
@@ -1511,21 +1511,21 @@ klasterius, pašalina mažiau požymių ir yra sudėtingiau realizuojamas
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{./img/image8.png}
-  \caption{Skirtingų n-gramų dydžių, suklasterizuotų KV metodu, išoriniai
+  \caption{Skirtingų n-gramų, suklasterizuotų KV metodu, išoriniai
   kriterijai}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{./img/image24.png}
-  \caption{Skirtingų n-gramų dydžių, suklasterizuotų LM metodu, išoriniai
+  \caption{Skirtingų n-gramų, suklasterizuotų LM metodu, išoriniai
   kriterijai}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{./img/image20.png}
-  \caption{Skirtingų n-gramų dydžių, suklasterizuotų Ward metodu, išoriniai
+  \caption{Skirtingų n-gramų, suklasterizuotų Ward metodu, išoriniai
   kriterijai}
 \end{figure}
 
@@ -1561,7 +1561,7 @@ klasterius, pašalina mažiau požymių ir yra sudėtingiau realizuojamas
 
 Paskutiniame eksperimente išbandytos simbolinės n-gramos, kaip
 paprastesnė morfologinės analizės alternatyva stemeriams ir lemuokliams.
-Kaip matome iš pateiktų rezultatų, pagal išorinius kriterijus n-gramos
+Kaip matome iš pateiktų rezultatų, pagal išorinius kokybės vertinimo kriterijus n-gramos
 pasirodė gerai su visais trimis klasterizavimo metodais. 1-gramos
 pasirodė žymiai prasčiau, nei neapdorotas tekstas, bet to buvo galima
 tikėtis, nes šiuo atveju požymiai sudaryti tik iš atskirų raidžių.
@@ -1569,7 +1569,7 @@ Tekstą suskaidžius į simbolines 2-gramas, LM metodu sudarytų klasterių
 rezultatai buvo tokie pat geri, kaip ir su neapdorotu tekstu, o
 rezultatai parengti KV ir Ward metodais, net geresni. Toliau suskaidžius
 tekstą 3-gramomis, rezultatai gerėjo, kol išsilygino ties 4-gramomis
-(viršydami ankstesnio eksperimento KV ir Ward rezultatus) kaip ir su
+(viršydami \ref{stemAndLem} skyriaus eksperimento KV ir Ward rezultatus) kaip ir su
 kitomis europinėmis kalbomis.% (žr. sk. \ref{ngram}).
 
 Iš požymių lentelių galime pastebėti, kodėl rezultatų gerėjimas sustoja
@@ -1579,7 +1579,7 @@ kategorijas, bet su 4-gramomis jau galima atpažinti žodžius, pavyzdžiui,
   požymio ilgis yra 4,69 (vidutinis žodžio ilgis 6,33, lemos -- 6,24),
   iš to galime spėti, kad galbūt n-gramos gali dalinai išgauti kamienus.}.
 
-Iš anksčiau pateikto grafiko \ref{nsize} galima
+Iš anksčiau pateikto \ref{nsize} pav. galima
 matyti, kad su mažomis $n$ reikšmėmis n-gramos yra efektyvus
 metodas sumažinti požymių kiekį, bet su didesnėmis $n$ reikšmėmis,
 požymių kiekis gali labai smarkiai išaugti (šių duomenų atveju net
@@ -1587,7 +1587,7 @@ viršyti neapdoroto teksto požymių kiekį).
 
 Apibendrinant galima teigti, kad parinkus tinkamą $n$
 reikšmę, n-gramos gali parengti panašios kokybės klasterizavimo
-rezultatus kaip stermeriai ir lemuokliai, smarkiai sumažinti požymių
+rezultatus kaip stemeriai ir lemuokliai, smarkiai sumažinti požymių
 kiekį ir yra lengvai realizuojamos. Bet n-gramų rezultatai yra sunkiau
 įskaitomi (iš raidžių sekos sunkiau atpažinti žodį nei iš šaknies),
 požymių kiekis gali staiga netikėtai išaugti.
@@ -1612,6 +1612,7 @@ Siekiant užsibrėžto tikslo buvo atlikti šie darbai:
   filtravimo metodai:
 
   \begin{itemize}
+  \tightlist
   \item
     Nereikšmingų žodžių pašalinimas: su nereikšmingų žodžių sąrašu,
     pašalinant nereikšmingas kalbos dalis ir pagal tai kaip dažnai žodžiai pasikartoja
@@ -1623,16 +1624,17 @@ Siekiant užsibrėžto tikslo buvo atlikti šie darbai:
 \item
   Skaitinių požymių išskyrimui iš tekstų buvo panaudotas tf-idf metodas.
 \item
-  Apžvelgti ir išbandyti šeši klasterizavimo metodai ir nuspręsta, kad
+  Apžvelgti ir išbandyti šeši klasterizavimo metodai ir nuspręsta
   eksperimentuose naudoti: k-vidurkių, lūkesčių-maksimizavimo,
   hierarchinio jungiamojo su Ward atstumo matavimo / jungimo metodus.
 \item
-  Klasterizavimo rezultatų kokybė buvo vertinama išoriniais kriterijais: Rand
-  indeksu, homogeniškumu ir išsamumu. Taip pat eksperimentų rezultatams
+  Klasterizavimo rezultatų kokybė buvo vertinama išoriniais kokybės vertinimo kriterijais: Rand
+  indeksas, homogeniškumas ir išsamumas. Taip pat eksperimentų rezultatams
   vertinti naudotas požymių kiekis ir požymių lentelės.
 \end{itemize}
 
-Kaip parodė eksperimentų rezultatai:
+Atlike eksperimentus ir palyginę skirtingus tekstinių duomenų parengimo 
+klasterizavimui metodus nustatėme, kad:
 
 \begin{itemize}
 \tightlist
@@ -1657,9 +1659,10 @@ Kaip parodė eksperimentų rezultatai:
   sunkiausiai įskaitomi ir kombinuojami su kitais metodais.
 \end{itemize}
 
-Apibendrinus eksperimentų rezultatus galima teigti, kad geriausias
-duomenų šaltinis yra straipsnių tekstai, geriausias būdas pašalinti
-nereikšmingus žodžius -- naudoti kalbos dalis, geriausias būdas atlikti
+Apibendrinus eksperimentų su lietuviškais tekstais
+ rezultatus galima teigti, kad geriausias
+duomenų šaltinis yra straipsnių tekstai, geriausias metodas pašalinti
+nereikšmingus žodžius -- naudoti kalbos dalis, geriausias metodas atlikti
 morfologinę analizę -- naudoti 4-gramas. Tačiau visi apžvelgti metodai
 yra vertingi ir pasirinkimas priklauso nuo to kas svarbiau: klasterių
 kokybė, rezultatų suprantamumas ar realizavimo sudėtingumas.
@@ -1774,7 +1777,7 @@ clustering, intelligible results or difficulty of implementation.
 % diskelyje ar kompaktiniame diske. Priedai taip pat vadinami ir numeruojami.
 % Tekstas su priedais siejamas nuorodomis (pvz.: \ref{img:mlp}).
 
-\section{Morfologinio anotatoriaus veikimo pavizdys}\label{morfAnot}
+\section{Morfologinio anotatoriaus veikimo pavyzdys}\label{morfAnot}
 
 \noindent Įvestis:
 
